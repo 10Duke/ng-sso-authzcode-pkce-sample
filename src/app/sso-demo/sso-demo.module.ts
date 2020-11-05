@@ -2,23 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { OAuthIFrameModule } from '../oauth-iframe/oauth-iframe.module';
-
-import { SSODemoComponent } from './sso-demo.component';
+import { OAuthSuccessComponent } from './oauth-success.component';
+import { SSODemoRoutesModule } from './sso-demo.routes';
 import { UserInfoComponent } from './userinfo.component';
+import { WelcomeComponent } from './welcome.component';
 
 @NgModule({
     declarations: [
-        SSODemoComponent
-      , UserInfoComponent
+        OAuthSuccessComponent,
+        WelcomeComponent,
+        UserInfoComponent
     ]
   , imports: [
         BrowserModule
       , HttpClientModule
-      , OAuthIFrameModule
+      , SSODemoRoutesModule
     ]
   , exports: [
-        SSODemoComponent
     ]
 })
 export class SSODemoModule { }
