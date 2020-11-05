@@ -13,8 +13,13 @@ request `/userinfo` with the access token.
 
 ## Configuration
 
-The application is configured in `app.module.ts`: You need to modify the
-configuration e.g. if you are running against different IdP.
+The application is configured in `app.module.ts`: You need to modify the configuration e.g. if you are
+running against different IdP.
+
+The sample is configured with following OAuth-details (you need to configure the OAuth-provider with these values or change these values):
+- client_id: **ng-pkce-demo-local**
+- redirect_uri: **http://localhost:4200/login/callback**
+
 
 ## Notes
 
