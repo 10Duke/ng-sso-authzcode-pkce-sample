@@ -38,11 +38,17 @@ export class OAuthSuccessComponent implements OnDestroy
         this.queryParams = route.queryParams.subscribe(params => this.onAuthenticationSuccess(params));
     }
 
+    /**
+     * This method is called when the query-parameters are changed, and
+     * uses OAuthService to exchange the code to a token.
+     * 
+     * @param params query parameters from router
+     */
     protected onAuthenticationSuccess(params: Params): void
     {
         try {
-            this.oauth.handleAuthenticationResponse(params).subscribe(response => {
-                this.token = response.access_token;
+            this.oauth.handleAuthenticationResponse(params.code, params.state).subscribe(response => {
+                this.token = response.getAccessToken();
             });
         } catch (anException) {
             console.error(anException);

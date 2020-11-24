@@ -36,6 +36,8 @@ export class UserInfoComponent implements OnChanges
         this.token = changes.token.currentValue;
 
         if (this.token) {
+            // Note: We could use the 10Duke PKCE-library to access userinfo-endpoint, but
+            // this demonstrates generic HTTP-request using the Bearer-token
             this.http.get<any>(
                 this.oauthProvider.userinfo_endpoint
               , {headers: new HttpHeaders({Authorization: 'Bearer ' + this.token})}

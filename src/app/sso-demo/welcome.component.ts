@@ -9,7 +9,7 @@ import { OAuthService } from '../oauth/oauth.service';
 @Component({
     template: `
     Welcome, please login:
-<button (click)="oauth.startFlow()">Login</button>
+<button (click)="oauth.startFlow('demo')">Login</button>
 `
 })
 export class WelcomeComponent
