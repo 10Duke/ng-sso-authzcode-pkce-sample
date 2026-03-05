@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { NgxWebstorageModule } from 'ngx-webstorage';
+import { provideNgxWebstorage, withLocalStorage } from 'ngx-webstorage';
 
 import { SSODemoModule } from './sso-demo/sso-demo.module';
 import { REDIRECT_PATH } from './sso-demo/sso-demo.routes';
@@ -37,12 +37,12 @@ const defaultOptions: OAuthOptions = {
     ]
   , imports: [
         BrowserModule
-      , NgxWebstorageModule.forRoot()
       , SSODemoModule
       , AppRoutesModule
     ]
   , providers: [
         OAuthService
+      , provideNgxWebstorage(withLocalStorage())
       , {provide: DEFAULT_OAUTH_OPTIONS, useValue: defaultOptions}
       , {provide: DEFAULT_OAUTH_PROVIDER, useValue: defaultProvider}
     ]

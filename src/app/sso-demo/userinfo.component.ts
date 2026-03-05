@@ -9,14 +9,17 @@ import { ProviderConfiguration } from '../oauth/provider-configuration.type';
  *  The component does HTTP-request to userinfo-endpoint, when the bound input `token` changes.
  */
 @Component({
-    selector: 'xd-userinfo'
-  , template: `
-<div *ngIf="userInfo">
+    selector: 'xd-userinfo',
+    template: `
+@if (userInfo) {
+  <div>
     Given name: {{userInfo.given_name}}<br>
     Family name: {{userInfo.family_name}}<br>
     Email: {{userInfo.email}}<br>
-</div>
-`
+  </div>
+}
+`,
+    standalone: false
 })
 export class UserInfoComponent implements OnChanges
 {
