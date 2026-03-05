@@ -15,14 +15,16 @@ import { OAuthService } from '../oauth/oauth.service';
  */
 @Component({
     template: `
-<div *ngIf="token; else elseBlock">
-  <xd-userinfo [token]="token"></xd-userinfo>
-</div>
-<ng-template #elseBlock>
+@if (token) {
+  <div>
+    <xd-userinfo [token]="token"></xd-userinfo>
+  </div>
+} @else {
   <h1>Authentication success</h1>
   Exchanging code to token, please wait...
-</ng-template>
-`
+}
+`,
+    standalone: false
 })
 export class OAuthSuccessComponent implements OnDestroy
 {

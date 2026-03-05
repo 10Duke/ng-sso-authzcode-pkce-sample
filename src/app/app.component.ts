@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
  *
  */
 @Component({
-  selector: 'xd-app-root',
-  template: '<router-outlet></router-outlet>'
+    selector: 'xd-app-root',
+    template: '<router-outlet></router-outlet>',
+    standalone: false
 })
 export class AppComponent {
 }
